@@ -17,6 +17,8 @@ quality attribute so the reasoning behind every rule is explicit.
 - [Type safety](#type-safety)
   - [Python types](#python-types)
   - [TypeScript types](#typescript-types)
+- [API calls](#api-calls)
+  - [Frontend fetch URLs](#frontend-fetch-urls)
 - [Linting and formatting](#linting-and-formatting)
   - [Python tools](#python-tools)
     - [`Ruff` (format)](#ruff-format)
@@ -120,6 +122,20 @@ Mark unfinished work with `TODO` so it can be found by search:
   interfaces**.
 - Use the `strict` compiler option — zero errors allowed.
 - Prefer `interface` over `type` for object shapes.
+
+## API calls
+
+> Quality attribute: **Functional Suitability — Functional Correctness**
+>
+> Consistent URL formatting prevents routing mismatches between the
+> frontend and the FastAPI backend.
+
+### Frontend fetch URLs
+
+- Always end API path strings with a trailing slash — e.g., `/items/`,
+  not `/items`.
+- FastAPI redirects requests without a trailing slash, which can cause
+  `fetch` to silently lose the request body or method.
 
 ## Linting and formatting
 
