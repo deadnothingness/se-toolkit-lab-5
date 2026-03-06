@@ -344,3 +344,4 @@ async def sync(session: AsyncSession) -> dict:
     total_records = len(total_result.all())
 
     return {"new_records": new_records, "total_records": total_records}
+#comment
