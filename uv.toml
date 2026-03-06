@@ -1,0 +1,4 @@
+[[index]]
+name = "pypi"
+url = "https://mirror.yandex.ru/pypi/simple"
+default = true

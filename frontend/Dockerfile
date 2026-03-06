@@ -5,15 +5,24 @@
 # A less portable solution: download image through a cache proxy provided by the University.
 # This solution is necessary to avoid "Too many requests" errors.
 # This solution won't work outside the University network.
-FROM harbor.pg.innopolis.university/docker-hub-cache/node:22-alpine AS builder
-
+FROM node:20-alpine AS builder
 WORKDIR /app
 
-COPY package.json package-lock.json* ./
-RUN npm ci
+# Копируем только файлы с зависимостями
+COPY package*.json ./
 
+# Используем npm install вместо npm ci
+RUN npm install
+
+# Копируем остальной код
 COPY . .
+
+# Собираем приложение
 RUN npm run build
+
+FROM caddy:2.8-alpine
+COPY --from=builder /app/dist /usr/share/caddy
+COPY Caddyfile /etc/caddy/Caddyfile
 
 
 # Stage 2: Serve with Caddy
