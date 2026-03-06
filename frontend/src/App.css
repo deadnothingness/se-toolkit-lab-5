@@ -59,3 +59,67 @@ tr:nth-child(even) {
   padding: 0.25rem 0.75rem;
   font-size: 0.85rem;
 }
+
+/* Navigation */
+
+.header-nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.header-nav button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.header-nav button:hover {
+  background: #e5e5e5;
+}
+
+.header-nav button.nav-active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* Dashboard */
+
+.dashboard-controls {
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-controls label {
+  margin-right: 0.5rem;
+}
+
+.dashboard-controls select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.chart-container {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.chart-container h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.error {
+  color: #dc3545;
+}
